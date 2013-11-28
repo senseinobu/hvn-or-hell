@@ -6,7 +6,7 @@
 from scrapy.item import Item, Field
 
 class HeavenItem(Item):
-    	host = Field()
-	url = Field()
-	rating = Field()
-	tokens = Field()
+    host = Field()
+    url = Field()
+    rating = Field()
+    tokens = Field()

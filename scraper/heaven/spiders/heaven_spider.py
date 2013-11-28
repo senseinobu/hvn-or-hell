@@ -17,16 +17,16 @@ def removeNonAscii(s): return "".join(i for i in s if ord(i)<128)
 
 class HeavenSpider(CrawlSpider):
 	name = "heaven"
-	start_urls = ["http://timeforkids.com",
+	start_urls = [#"http://timeforkids.com",
 		"http://nick.com",
-		"http://dogonews.com",
-		"http://theconnectedclassroom.wikispaces.com/News",
-		'http://washingtonpost.com/lifestyle/kidspost',
-		'http://news.nationalgeographic.com/news/',
-		'http://teacher.scholastic.com/activities/scholasticnews/index.html',
-		'http://funbrain.com',
-		'http://kidsites.com',
-		'http://www.brainpop.com'
+		#"http://dogonews.com",
+		#"http://theconnectedclassroom.wikispaces.com/News",
+		#'http://washingtonpost.com/lifestyle/kidspost',
+		#'http://news.nationalgeographic.com/news/',
+		#'http://teacher.scholastic.com/activities/scholasticnews/index.html',
+		#'http://funbrain.com',
+		#'http://kidsites.com',
+		#'http://www.brainpop.com'
 	]
 	allowed_domains = [url.split('/')[2] for url in start_urls]
 	rules = (

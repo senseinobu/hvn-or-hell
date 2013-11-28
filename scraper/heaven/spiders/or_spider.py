@@ -19,11 +19,11 @@ class OrSpider(CrawlSpider):
 	name = "or"
 	start_urls = [
 		"http://www.scarleteen.com",
-		"http://99problems.org",
-		"http://www.crazymonkeygames.com",
-		"http://www.newsmap.jp",
-		"http://www.irmag.com",
-		"http://jalopnik.com"
+		#"http://99problems.org",
+		#"http://www.crazymonkeygames.com",
+		#"http://www.newsmap.jp",
+		#"http://www.irmag.com",
+		#"http://jalopnik.com"
 		
 	]
 	allowed_domains = [url.split('/')[2] for url in start_urls]

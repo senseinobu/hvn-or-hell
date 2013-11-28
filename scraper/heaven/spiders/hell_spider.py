@@ -17,10 +17,10 @@ def removeNonAscii(s): return "".join(i for i in s if ord(i)<128)
 
 class HellSpider(CrawlSpider):
 	name = "hell"
-	start_urls = ["http://reddit.com/r/nsfw",
+	start_urls = [#"http://reddit.com/r/nsfw",
 		"http://porn.com",
-		"http://literotica.com",
-		"http://4chan.org",
+		#"http://literotica.com",
+		#"http://4chan.org",
 	]
 	allowed_domains = [url.split('/')[2] for url in start_urls]
 	rules = (
