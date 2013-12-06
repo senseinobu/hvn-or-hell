@@ -23,15 +23,15 @@ class LoneSpider(CrawlSpider):
     rules = (
         Rule(SgmlLinkExtractor(), callback='parse_item'),
     )
-    items = []
     
-    def __init__(self, **kw):
-        super(LoneSpider, self).__init__(**kw)
+    def __init__(self, *args, **kw):
+        super(LoneSpider, self).__init__(*args, **kw)
         url = kw.get('url') or kw.get('domain') or 'http://scrapinghub.com/'
         if not url.startswith('http://') and not url.startswith('https://'):
             url = 'http://%s/' % url
-        self.url = url
+        self.start_urls = [url]
         self.allowed_domains = [urlparse(url).hostname.lstrip('www.')]
+        self.items=[]
            
     def parse_item(self, response):
         root = lxml.html.fromstring(response.body)

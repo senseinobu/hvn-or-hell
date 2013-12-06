@@ -5,7 +5,7 @@ from scrapy import log, signals
 from PageGetter.spiders.lonespider import LoneSpider
 from scrapy.utils.project import get_project_settings
 def getPage():
-    spider = LoneSpider()
+    spider = LoneSpider(domain = "www.somethingawful.com")
     settings = get_project_settings()
     crawler = Crawler(settings)
     crawler.signals.connect(reactor.stop,signal=signals.spider_closed)

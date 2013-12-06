@@ -1,5 +1,6 @@
 from stemming.porter2 import stem
-from heaven.items import HeavenItem
+from heaven.items import PageItem
+from nltk.corpus import stopwords
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
 from scrapy.selector import Selector
@@ -11,6 +12,8 @@ import re
 
 def tokenize(text):
 	tokens = re.findall("[\w']+", text.lower())
+    swords = stopwords.words('english')
+    tokens = [token for token in tokens if token not in swords]
 	return [stem(token) for token in tokens]
 
 def removeNonAscii(s): return "".join(i for i in s if ord(i)<128)
@@ -34,9 +37,9 @@ class HellSpider(CrawlSpider):
 		text = lxml.html.tostring(root, encoding=unicode, method="text")
 		hostname = response.url.split("/")[2]
 		removeNonAscii(text)
-		item = HeavenItem()
-		item['host'] = hostname
-		item['url']=response.url
+		item = PageItem()
+		item['hostname'] = hostname
+		item['url'] = response.url
 		item['tokens'] = tokenize(text)
 		item['rating'] = 'R'
 		return item

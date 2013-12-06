@@ -4,7 +4,7 @@ import math
 import os
 from stemming import porter2
 
-#I'm using json for the purposes of this demonstration,but have set up a
+#I'm using json for the purposes of this demonstration,but have set up  a
 #database to store web training data into a database that can be read by the
 #django site much more quickly
 def read_data(filename):
@@ -81,11 +81,11 @@ class KNN(object):
 
 if __name__ == "__main__":
     print "Test is starting"
-    pages = read_data(os.path.join(os.getcwd(),'g_rated.json'))[0:1]
-    pages = pages + read_data(os.path.join(os.getcwd(),'pg13_rated.json'))[0:1]
-    pages = pages + read_data(os.path.join(os.getcwd(),'r_rated.json'))[0:1]
+    pages = read_data(os.path.join(os.getcwd(),'g_rated.json'))[0:10]
+    pages = pages + read_data(os.path.join(os.getcwd(),'pg13_rated.json'))[0:10]
+    pages = pages + read_data(os.path.join(os.getcwd(),'r_rated.json'))[0:10]
     knn = KNN()
     knn.index_pages(pages)
     print "Indexing finished"
     #the first few hundered or so should all be g rated
-    print knn.classify(pages[0],0)
+    print knn.classify(pages[5],4)

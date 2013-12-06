@@ -12,8 +12,8 @@ class Page(models.Model):
     hostname = models.CharField(max_length=500)
     url = models.CharField(max_length=500)
     rating = models.CharField(max_length=10)
-    def __unitcode__(self):
-        return "Rating:%s:%s" % (rating,url)
+    def __unicode__(self):
+        return "Rating:%s:%s" % (self.rating,self.url)
 
 class TermValue(models.Model):
     term = models.ForeignKey(Term)
